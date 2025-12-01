@@ -6,13 +6,21 @@
     <title>Mon Portfolio</title>
 
     <style>
+        /* ----- COULEURS PRINCIPALES (MODIFIABLES) ----- */
+        :root {
+            --bg-dark: #0d1117;
+            --bg-light: #161b22;
+            --blue: #3498db;
+            --text: #e6edf3;
+            --grey: #c5c9ce;
+        }
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
-            background: #f5f5f5;
-            color: #333;
-            padding-top: 60px; /* pour ne pas cacher le contenu sous la navbar */
+            background: var(--bg-dark);
+            color: var(--text);
+            padding-top: 60px;
         }
 
         /* ----- NAVBAR FIXE ----- */
@@ -21,10 +29,11 @@
             top: 0;
             left: 0;
             width: 100%;
-            background: #222;
+            background: var(--bg-light);
             padding: 12px 0;
             z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+            border-bottom: 1px solid #222;
         }
 
         nav ul {
@@ -37,50 +46,85 @@
         }
 
         nav a {
-            color: white;
+            color: var(--grey);
             text-decoration: none;
             font-size: 18px;
+            transition: color 0.2s;
         }
 
         nav a:hover {
-            text-decoration: underline;
+            color: var(--blue);
         }
 
         /* ----- HEADER ----- */
         header {
             text-align: center;
-            padding: 60px 20px;
-            background: #222;
-            color: white;
+            padding: 80px 20px;
+            background: linear-gradient(to bottom right, #0f1620, #0d1117);
         }
 
-        /* ----- CONTENU ----- */
+        header h1 {
+            color: var(--blue);
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: var(--grey);
+            font-size: 20px;
+        }
+
+        /* ----- SECTIONS ----- */
         section {
-            max-width: 800px;
+            max-width: 900px;
             margin: auto;
             padding: 40px 20px;
         }
 
         h2 {
-            border-left: 4px solid #222;
+            border-left: 4px solid var(--blue);
             padding-left: 10px;
             margin-top: 40px;
+            color: var(--blue);
         }
 
+        p, li {
+            color: var(--grey);
+            line-height: 1.6;
+        }
+
+        /* ----- PROJETS ----- */
         .project {
-            background: white;
+            background: var(--bg-light);
             padding: 20px;
             margin: 15px 0;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            border: 1px solid #222;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.3);
         }
 
+        .project h3 {
+            margin-top: 0;
+            color: var(--blue);
+        }
+
+        .project a {
+            color: var(--blue);
+            text-decoration: none;
+        }
+
+        .project a:hover {
+            text-decoration: underline;
+        }
+
+        /* ----- FOOTER ----- */
         footer {
             text-align: center;
             padding: 20px;
-            background: #222;
-            color: white;
+            background: var(--bg-light);
+            color: var(--grey);
             margin-top: 40px;
+            border-top: 1px solid #222;
         }
     </style>
 </head>
@@ -99,27 +143,30 @@
 <!-- ----- HEADER ----- -->
 <header>
     <h1>Ton Nom</h1>
-    <p>Étudiant en informatique – Développement, Cybersécurité, etc.</p>
+    <p>Étudiant en informatique – Développement, IA, Cybersécurité</p>
 </header>
 
-<!-- ----- SECTIONS ----- -->
+<!-- ----- PRESENTATION ----- -->
 <section id="presentation">
     <h2>Présentation</h2>
     <p>
-        Je suis étudiant en informatique, passionné par le développement et la cybersécurité.
+        Je suis étudiant en informatique, passionné par le développement, les technologies modernes 
+        et la cybersécurité. J'aime apprendre, créer et résoudre des problèmes complexes.
         Je recherche une alternance / un stage / un poste (à adapter).
     </p>
 </section>
 
+<!-- ----- COMPÉTENCES ----- -->
 <section id="competences">
     <h2>Compétences</h2>
     <ul>
-        <li>Langages : Python, Java, JavaScript…</li>
-        <li>Technos : HTML, CSS, Git, Linux…</li>
-        <li>Domaines : Développement web, algorithmique, cybersécurité…</li>
+        <li>Langages : Python, Java, JavaScript, C…</li>
+        <li>Techniques : Git, Linux, Docker, HTML/CSS</li>
+        <li>Domaines : Développement web, cybersécurité, algorithmique</li>
     </ul>
 </section>
 
+<!-- ----- PROJETS ----- -->
 <section id="projets">
     <h2>Projets</h2>
 
@@ -137,10 +184,11 @@
 
 </section>
 
+<!-- ----- CONTACT ----- -->
 <section id="contact">
     <h2>Contact</h2>
     <p>Email : ton.email@example.com</p>
-    <p><a href="https://www.linkedin.com/">LinkedIn</a></p>
+    <p><a href="https://www.linkedin.com/" style="color: var(--blue);">LinkedIn</a></p>
 </section>
 
 <footer>
