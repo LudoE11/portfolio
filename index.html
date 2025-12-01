@@ -1437,31 +1437,24 @@ if (cvLink) {
         const filename = 'CV_Ludovic_Ertzer.pdf';
         const url = this.getAttribute('href');
         
-        // Méthode 1 : Création d'un lien invisible avec download forcé
         const downloadLink = document.createElement('a');
         
-        // IMPORTANT : Utiliser une URL absolue si en local
         const absoluteUrl = new URL(url, window.location.origin).href;
         
         downloadLink.href = absoluteUrl;
-        downloadLink.download = filename; // Force le téléchargement
+        downloadLink.download = filename;
         
-        // Configurations supplémentaires
         downloadLink.style.display = 'none';
-        downloadLink.target = '_blank'; // Fallback
+        downloadLink.target = '_blank';
         
         document.body.appendChild(downloadLink);
         
-        // Double clic pour certains navigateurs
         downloadLink.click();
         
-        // Attendre un peu puis retirer
         setTimeout(() => {
             document.body.removeChild(downloadLink);
             
-            // Fallback : ouvrir dans un nouvel onglet après 300ms
             setTimeout(() => {
-                // Vérifier si le téléchargement a démarré
                 const downloadStarted = performance.now();
                 setTimeout(() => {
                     if (performance.now() - downloadStarted < 500) {
