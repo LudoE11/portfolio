@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon Portfolio</title>
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,23 +12,61 @@
             padding: 0;
             background: #f5f5f5;
             color: #333;
+            padding-top: 60px; /* pour ne pas cacher le contenu sous la navbar */
         }
+
+        /* ----- NAVBAR FIXE ----- */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #222;
+            padding: 12px 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* ----- HEADER ----- */
         header {
             text-align: center;
             padding: 60px 20px;
             background: #222;
             color: white;
         }
+
+        /* ----- CONTENU ----- */
         section {
             max-width: 800px;
             margin: auto;
             padding: 40px 20px;
         }
+
         h2 {
             border-left: 4px solid #222;
             padding-left: 10px;
             margin-top: 40px;
         }
+
         .project {
             background: white;
             padding: 20px;
@@ -35,6 +74,7 @@
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
+
         footer {
             text-align: center;
             padding: 20px;
@@ -46,43 +86,61 @@
 </head>
 <body>
 
+<!-- ----- NAVBAR FIXE ----- -->
+<nav>
+    <ul>
+        <li><a href="#presentation">Présentation</a></li>
+        <li><a href="#competences">Compétences</a></li>
+        <li><a href="#projets">Projets</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- ----- HEADER ----- -->
 <header>
     <h1>Ton Nom</h1>
-    <p>Étudiant en informatique – Développeur / Analyste / Cybersécurité (à adapter)</p>
+    <p>Étudiant en informatique – Développement, Cybersécurité, etc.</p>
 </header>
 
-<section>
-    <h2>À propos de moi</h2>
+<!-- ----- SECTIONS ----- -->
+<section id="presentation">
+    <h2>Présentation</h2>
     <p>
-        Je suis étudiant en informatique, passionné par le développement, la sécurité et les nouvelles technologies.
-        Je cherche une alternance / un stage / un emploi (à adapter) dans le domaine informatique.
+        Je suis étudiant en informatique, passionné par le développement et la cybersécurité.
+        Je recherche une alternance / un stage / un poste (à adapter).
     </p>
+</section>
 
+<section id="competences">
     <h2>Compétences</h2>
     <ul>
         <li>Langages : Python, Java, JavaScript…</li>
-        <li>Technologies : HTML, CSS, Git, Linux…</li>
-        <li>Domaines : Développement web, cybersécurité, algorithmique…</li>
+        <li>Technos : HTML, CSS, Git, Linux…</li>
+        <li>Domaines : Développement web, algorithmique, cybersécurité…</li>
     </ul>
+</section>
 
+<section id="projets">
     <h2>Projets</h2>
 
     <div class="project">
-        <h3>Nom du projet 1</h3>
+        <h3>Projet 1</h3>
         <p>Description courte du projet.</p>
         <p><a href="#">Lien GitHub</a></p>
     </div>
 
     <div class="project">
-        <h3>Nom du projet 2</h3>
+        <h3>Projet 2</h3>
         <p>Description courte du projet.</p>
         <p><a href="#">Lien GitHub</a></p>
     </div>
 
+</section>
+
+<section id="contact">
     <h2>Contact</h2>
     <p>Email : ton.email@example.com</p>
     <p><a href="https://www.linkedin.com/">LinkedIn</a></p>
-
 </section>
 
 <footer>
