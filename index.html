@@ -597,6 +597,72 @@
             overflow: hidden;
         }
 
+        .contact-form-container {
+    width: 100%;
+    margin-top: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+#contactForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    z-index: 3;
+}
+
+#contactForm input,
+#contactForm textarea,
+#contactForm button {
+    position: relative;
+    z-index: 1;
+}
+
+/* Styles pour les labels */
+#contactForm label {
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text);
+    display: block;
+}
+
+/* Styles pour les champs de formulaire */
+.form-input {
+    padding: 14px 16px;
+    border-radius: var(--border-radius-sm);
+    border: 1px solid #2a313a;
+    background: rgba(22, 27, 34, 0.9);
+    color: var(--text);
+    font-size: 16px;
+    transition: var(--transition);
+    font-family: 'Raleway', sans-serif;
+    width: 100%;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+#contactForm textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Pour le responsive sur mobile */
+@media (max-width: 768px) {
+    #contactForm .form-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .form-input {
+        padding: 12px 14px;
+    }
+}
+
         .contact-container::before {
             content: '';
             position: absolute;
@@ -1228,9 +1294,9 @@
                 <div>
                     <strong>GitHub</strong>
                     <div>
-                        <a href="https://github.com/votre-utilisateur-github" 
+                        <a href="https://github.com/LudoE11" 
                            style="color: var(--blue); text-decoration: none;">
-                            github.com/votre-utilisateur-github
+                            github.com/LudoE11
                         </a>
                     </div>
                 </div>
@@ -1253,112 +1319,82 @@
         </a>
         
         <!-- Formulaire de contact -->
-        <div class="contact-form-container" style="width: 100%; margin-top: 30px;">
-            <h3 style="text-align: center; color: var(--blue-light); margin-bottom: 25px; font-size: 1.5rem;">
-                <i class="fas fa-paper-plane"></i> Envoyer un message
-            </h3>
+        <!-- Formulaire de contact -->
+<div class="contact-form-container">
+    <h3 style="text-align: center; color: var(--blue-light); margin-bottom: 25px; font-size: 1.5rem;">
+        <i class="fas fa-paper-plane"></i> Envoyer un message
+    </h3>
+    
+    <form id="contactForm">
+        <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div>
+                <label for="name">
+                    Nom complet *
+                </label>
+                <input type="text" id="name" name="name" required class="form-input"
+                       placeholder="Votre nom">
+            </div>
             
-            <form id="contactForm" style="display: flex; flex-direction: column; gap: 20px;">
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                    <div style="display: flex; flex-direction: column;">
-                        <label for="name" style="margin-bottom: 8px; font-weight: 600; color: var(--text);">
-                            Nom complet *
-                        </label>
-                        <input type="text" id="name" name="name" required 
-                               style="padding: 14px 16px; border-radius: var(--border-radius-sm); 
-                                      border: 1px solid #2a313a; background: rgba(22, 27, 34, 0.8); 
-                                      color: var(--text); font-size: 16px; transition: var(--transition);"
-                               placeholder="Votre nom">
-                    </div>
-                    
-                    <div style="display: flex; flex-direction: column;">
-                        <label for="email" style="margin-bottom: 8px; font-weight: 600; color: var(--text);">
-                            Email *
-                        </label>
-                        <input type="email" id="email" name="email" required 
-                               style="padding: 14px 16px; border-radius: var(--border-radius-sm); 
-                                      border: 1px solid #2a313a; background: rgba(22, 27, 34, 0.8); 
-                                      color: var(--text); font-size: 16px; transition: var(--transition);"
-                               placeholder="votre@email.com">
-                    </div>
-                </div>
-                
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                    <div style="display: flex; flex-direction: column;">
-                        <label for="phone" style="margin-bottom: 8px; font-weight: 600; color: var(--text);">
-                            Téléphone (optionnel)
-                        </label>
-                        <input type="tel" id="phone" name="phone"
-                               style="padding: 14px 16px; border-radius: var(--border-radius-sm); 
-                                      border: 1px solid #2a313a; background: rgba(22, 27, 34, 0.8); 
-                                      color: var(--text); font-size: 16px; transition: var(--transition);"
-                               placeholder="+33 1 23 45 67 89">
-                    </div>
-                    
-                    <div style="display: flex; flex-direction: column;">
-                        <label for="subject" style="margin-bottom: 8px; font-weight: 600; color: var(--text);">
-                            Sujet *
-                        </label>
-                        <input type="text" id="subject" name="subject" required 
-                               style="padding: 14px 16px; border-radius: var(--border-radius-sm); 
-                                      border: 1px solid #2a313a; background: rgba(22, 27, 34, 0.8); 
-                                      color: var(--text); font-size: 16px; transition: var(--transition);"
-                               placeholder="Objet de votre message">
-                    </div>
-                </div>
-                
-                <div style="display: flex; flex-direction: column;">
-                    <label for="message" style="margin-bottom: 8px; font-weight: 600; color: var(--text);">
-                        Message *
-                    </label>
-                    <textarea id="message" name="message" required rows="6"
-                              style="padding: 14px 16px; border-radius: var(--border-radius-sm); 
-                                     border: 1px solid #2a313a; background: rgba(22, 27, 34, 0.8); 
-                                     color: var(--text); font-size: 16px; resize: vertical; 
-                                     transition: var(--transition); font-family: 'Raleway', sans-serif;"
-                              placeholder="Votre message..."></textarea>
-                </div>
-                
-                <div style="background: rgba(52, 152, 219, 0.1); padding: 20px; border-radius: var(--border-radius-sm); border: 1px solid rgba(52, 152, 219, 0.3);">
-                    <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 15px;">
-                        <input type="checkbox" id="privacy" name="privacy" required 
-                               style="margin-top: 3px; accent-color: var(--blue);">
-                        <label for="privacy" style="color: var(--text); font-size: 14px; line-height: 1.5;">
-                            J'accepte que mes données personnelles (nom, email, téléphone) soient utilisées 
-                            uniquement pour répondre à ma demande de contact. Ces données ne seront ni vendues 
-                            ni partagées avec des tiers et seront conservées pendant 12 mois maximum.
-                        </label>
-                    </div>
-                    
-                    <div style="display: flex; align-items: flex-start; gap: 12px;">
-                        <input type="checkbox" id="newsletter" name="newsletter"
-                               style="margin-top: 3px; accent-color: var(--blue);">
-                        <label for="newsletter" style="color: var(--text); font-size: 14px; line-height: 1.5;">
-                            J'accepte de recevoir occasionnellement des informations sur les nouveaux projets 
-                            et actualités (vous pourrez vous désinscrire à tout moment).
-                        </label>
-                    </div>
-                </div>
-                
-                <button type="submit" 
-                        style="background: var(--gradient-blue); color: white; border: none; 
-                               padding: 16px 30px; border-radius: 12px; font-weight: 700; 
-                               font-size: 17px; cursor: pointer; transition: var(--transition);
-                               display: flex; align-items: center; justify-content: center; gap: 12px;
-                               margin-top: 10px;">
-                    <i class="fas fa-paper-plane"></i>
-                    Envoyer le message
-                </button>
-                
-                <div id="formMessage" style="text-align: center; padding: 12px; border-radius: var(--border-radius-sm); 
-                                            margin-top: 10px; display: none;"></div>
-            </form>
+            <div>
+                <label for="email">
+                    Email *
+                </label>
+                <input type="email" id="email" name="email" required class="form-input"
+                       placeholder="votre@email.com">
+            </div>
         </div>
         
-        <p style="text-align: center; color: var(--grey); font-size: clamp(14px, 1.8vw, 15px); margin-top: 30px;">
-            <i class="fas fa-info-circle"></i> N'hésitez pas à me contacter pour toute opportunité !
-        </p>
-    </div>
+        <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div>
+                <label for="phone">
+                    Téléphone (optionnel)
+                </label>
+                <input type="tel" id="phone" name="phone" class="form-input"
+                       placeholder="+33 1 23 45 67 89">
+            </div>
+            
+            <div>
+                <label for="subject">
+                    Sujet *
+                </label>
+                <input type="text" id="subject" name="subject" required class="form-input"
+                       placeholder="Objet de votre message">
+            </div>
+        </div>
+        
+        <div>
+            <label for="message">
+                Message *
+            </label>
+            <textarea id="message" name="message" required rows="6" class="form-input"
+                      placeholder="Votre message..."></textarea>
+        </div>
+        
+        <div style="background: rgba(52, 152, 219, 0.1); padding: 20px; border-radius: var(--border-radius-sm); border: 1px solid rgba(52, 152, 219, 0.3); position: relative; z-index: 1;">
+            <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 15px;">
+                <input type="checkbox" id="privacy" name="privacy" required 
+                       style="margin-top: 3px; accent-color: var(--blue);">
+                <label for="privacy" style="color: var(--text); font-size: 14px; line-height: 1.5;">
+                    J'accepte que mes données personnelles soient utilisées pour répondre à ma demande de contact. Ces données ne seront ni vendues 
+                    ni partagées avec des tiers.
+                </label>
+            </div>
+        </div>
+        
+        <button type="submit" 
+                style="background: var(--gradient-blue); color: white; border: none; 
+                       padding: 16px 30px; border-radius: 12px; font-weight: 700; 
+                       font-size: 17px; cursor: pointer; transition: var(--transition);
+                       display: flex; align-items: center; justify-content: center; gap: 12px;
+                       margin-top: 10px; position: relative; z-index: 1;">
+            <i class="fas fa-paper-plane"></i>
+            Envoyer le message
+        </button>
+        
+        <div id="formMessage" style="text-align: center; padding: 12px; border-radius: var(--border-radius-sm); 
+                                    margin-top: 10px; display: none; position: relative; z-index: 1;"></div>
+    </form>
+</div>
 </section>
 
 <footer>
